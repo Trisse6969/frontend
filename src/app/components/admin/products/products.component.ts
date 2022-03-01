@@ -20,7 +20,7 @@ export class ProductsComponent implements OnInit {
 
   getProducts(): void {
     this.productService.getProducts()
-      .subscribe(products => {this.inventoryService.products = products});
+      .subscribe(productpayload => {this.inventoryService.products = productpayload.products});
   }
 
 }
