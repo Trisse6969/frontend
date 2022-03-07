@@ -1,1 +1,8 @@
+<div *ngFor="!user?.id" align="right">
+    <a routerLink="login">Log in</a>
+</div>
+<div *ngFor="user?.id" algign="right">
+    User: {{user?.username}} |
+    <a href="#" (click)="logout($event)">Logout</a>
+</div>
 <router-outlet></router-outlet>
