@@ -24,8 +24,22 @@ export class AuthenticationService {
       );
   }
 
-  logout() {
+  logout(refreshToken: string) {
+    this.http.post<any>(`${environment.apiUrl}/users/revoke`, {refreshToken})
+      .subscribe();
+        
     sessionStorage.removeItem('user');
     this.inventoryService.user = null;
   }
+
+  refreshToken(token: string, refreshToken: string){
+    return this.http.post<User>(`${environment.apiUrl}/users/refresh`, {token, refreshToken})
+    .pipe(
+      map(user => {
+        sessionStorage.setItem('user', JSON.stringify(user));
+        this.inventoryService.user = user;
+        return user;
+      })
+    );
+    }
 }

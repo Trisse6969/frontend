@@ -11,18 +11,21 @@ import { InventoryService } from './services/inventory.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'frontend';
 
   user: User|null = null;
 
-  constructor(private router: Router, public authenticationService: AuthenticationService, public inventoryService: InventoryService)
-  {
-    this.inventoryService.user$.subscribe(x => this.user = x);
+  constructor(
+      private router: Router,
+      public authenticationService: AuthenticationService,
+      public inventoryService: InventoryService
+  ) {
+      this.inventoryService.user$.subscribe(x => this.user = x);
   }
 
   logout(e: Event) {
     e.preventDefault();
-    this.authenticationService.logout();
+    const currentUser = this.inventoryService.user;
+    this.authenticationService.logout(currentUser?.refreshToken || '');
     this.router.navigate(['/login']);
   }
 }

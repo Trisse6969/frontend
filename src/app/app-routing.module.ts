@@ -5,12 +5,13 @@ import { ProductsComponent } from './components/admin/products/products.componen
 import { ProductDetailComponent } from './components/admin/product-detail/product-detail.component';
 import { ProductAddComponent } from './components/admin/product-add/product-add.component';
 import { LoginComponent } from './components/public/login/login.component';
+import { AuthGuard } from './helpers/auth.guard';
 
 const routes: Routes = [
-  {path: '', component: ProductsComponent},
+  {path: '', component: ProductsComponent, canActivate: [AuthGuard]},
   {path: 'products', component: ProductsComponent},
   {path: 'products/add', component: ProductAddComponent},
-  {path: 'products/:id', component: ProductDetailComponent},
+  {path: 'products/:id', component: ProductDetailComponent, canActivate: [AuthGuard]},
   {path: 'login', component: LoginComponent}
 ]
 
