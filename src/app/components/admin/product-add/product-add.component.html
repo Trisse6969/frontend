@@ -1,22 +1,22 @@
 <div>
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
-        <div class="row">
-            <label for="name">Name: </label>
-            <input type="text" name="name" formControlName="name">
+        <div class="mb-3">
+            <label for="name" class="form-label">Name: </label>
+            <input class="form-control" type="text" name="name" formControlName="name">
         </div>
-        <div class="row">
-            <label for="description">Description: </label>
-            <input type="text" name="description" formControlName="description">
+        <div class="mb-3">
+            <label for="description" class="form-label">Description: </label>
+            <input class="form-control" type="text" name="description" formControlName="description">
         </div>
-        <div class="row">
-            <label for="category">Category: </label>
-            <input type="text" name="category" formControlName="category">
+        <div class="mb-3">
+            <label for="category" class="form-label">Category: </label>
+            <input class="form-control" type="text" name="category" formControlName="category">
         </div>
-        <div class="row">
-            <label for="price">Price: </label>
-            <input type="text" name="price" formControlName="price">
+        <div class="mb-3">
+            <label for="price" class="form-label">Description: </label>
+            <input class="form-control" type="text" name="price" formControlName="price">
         </div>
-        <button type="button" (click)="onSubmit()">Save</button>
-        <button type="button" (click)="goBack()">Go back</button>
+        <button class="btn btn-primary" type="button" (click)="onSubmit()">Save</button>
+        <button class="btn btn-primary" type="button" (click)="goBack()">Go back</button>
     </form>
 </div>

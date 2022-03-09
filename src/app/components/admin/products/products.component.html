@@ -1,11 +1,14 @@
-<p>Products</p>
-<a routerLink="/products/add">Add Product</a>
-<div class="row">
-    <div *ngFor="let product of inventoryService.products;">
+<div class="col-md-6 offset-md-3 mt-5">
+    <div class="mb-3">
+        <h1>Products</h1>
+        <a routerLink="/products/add">Add Product</a>
+    </div>
+    <div *ngFor="let product of inventoryService.products;" class="mb-3">
         <div class="card" style="width: 15rem">
             <div class="card-body">
                 <h5 class="card-title"><a routerLink="/products/{{product.id}}">{{product.name}}</a></h5>
                 <p class="card-subtitle mb-2 text-muted">€ {{product.price}}</p>
+                <p>{{product.description}}</p>
             </div>
         </div>
     </div>
