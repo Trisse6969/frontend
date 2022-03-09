@@ -1,22 +1,24 @@
 <h3>{{product.name}}</h3>
 <div>
-    <div class="row">
-        <label for="name">Name: </label>
-        <input type="text" name="name" [(ngModel)]="product.name">
-    </div>
-    <div class="row">
-        <label for="description">Description: </label>
-        <input type="text" name="description" [(ngModel)]="product.description">
-    </div>
-    <div class="row">
-        <label for="category">Category: </label>
-        <input type="text" name="category" [(ngModel)]="product.category">
-    </div>
-    <div class="row">
-        <label for="price">Description: </label>
-        <input type="text" name="price" [(ngModel)]="product.price">
-    </div>
-    <button type="button" (click)="saveProduct()">Save</button>
-    <button type="button" (click)="deleteProduct()">Delete</button>
-    <button type="button" (click)="goBack()">Go back</button>
+    <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <div class="row">
+            <label for="name">Name: </label>
+            <input type="text" name="name" formControlName="name">
+        </div>
+        <div class="row">
+            <label for="description">Description: </label>
+            <input type="text" name="description" formControlName="description">
+        </div>
+        <div class="row">
+            <label for="category">Category: </label>
+            <input type="text" name="category" formControlName="category">
+        </div>
+        <div class="row">
+            <label for="price">Description: </label>
+            <input type="text" name="price" formControlName="price">
+        </div>
+        <button type="button" (click)="onSubmit()">Save</button>
+        <button type="button" (click)="deleteProduct()">Delete</button>
+        <button type="button" (click)="goBack()">Go back</button>
+    </form>
 </div>
