@@ -1,7 +1,7 @@
-<div *ngFor="!user?.id" align="right">
+<div *ngIf="!user?.id" align="right">
     <a routerLink="login">Log in</a>
 </div>
-<div *ngFor="user?.id" algign="right">
+<div *ngIf="user?.id" algign="right">
     User: {{user?.username}} |
     <a href="#" (click)="logout($event)">Logout</a>
 </div>
