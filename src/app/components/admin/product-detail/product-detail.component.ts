@@ -30,6 +30,7 @@ export class ProductDetailComponent implements OnInit {
     const id = Number(this.route.snapshot.paramMap.get('id'));
     this.productService.getProduct(id)
       .subscribe(product => this.product = product);
+    console.log(this.product);
   }
 
   saveProduct(): void {
@@ -47,6 +48,7 @@ export class ProductDetailComponent implements OnInit {
   }
 
   onSubmit(): void {
-    console.log(this.productForm);
+    this.product = this.productForm.value;
+    this.saveProduct();
   }
 }

@@ -3,19 +3,19 @@
     <form [formGroup]="productForm" (ngSubmit)="onSubmit()">
         <div class="row">
             <label for="name">Name: </label>
-            <input type="text" name="name" formControlName="name">
+            <input type="text" name="name" formControlName="name" [(ngModel)]="product.name">
         </div>
         <div class="row">
             <label for="description">Description: </label>
-            <input type="text" name="description" formControlName="description">
+            <input type="text" name="description" formControlName="description" [(ngModel)]="product.description">
         </div>
         <div class="row">
             <label for="category">Category: </label>
-            <input type="text" name="category" formControlName="category">
+            <input type="text" name="category" formControlName="category" [(ngModel)]="product.category">
         </div>
         <div class="row">
             <label for="price">Description: </label>
-            <input type="text" name="price" formControlName="price">
+            <input type="text" name="price" formControlName="price" [(ngModel)]="product.price">
         </div>
         <button type="button" (click)="onSubmit()">Save</button>
         <button type="button" (click)="deleteProduct()">Delete</button>
